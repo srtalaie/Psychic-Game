@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+}
+h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h2{
+    font-size: 20px;
+}
+
+div{
+    padding-top: 20px;
+}
