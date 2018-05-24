@@ -25,19 +25,20 @@ document.onkeydown = function(event){
             wins++;
             alert("Congrats you guessed the correct letter: " + computerGuess);
             compLetterChoice();
-            userGuesses = 10;
+            resetGame();
             userLetters = [];
         } else if (userGuesses === 1){
             //If user guesses incorrectly, losses incremented up by 1 and new computer guess is created. User's guesses is reset to 10 and the array of all previously guessed letters is cleared for the new game
+            --userGuesses;
             losses++;
             alert('Sorry the correct letter was: ' + computerGuess);
             compLetterChoice();
-            userGuesses = 10;
+            resetGame();
             userLetters = [];
         } else {
             //If user guesses incorrectly but stil has guesses left then 1 guess is removed from the guess pool and the incorrect guess is logged on screen.
-            userGuesses--;
-            userLetters.push(userInput);  
+            --userGuesses;
+            userLetters.push(userInput);
         }
 
         //Updates the page with the new data each time a new guess is made
@@ -50,6 +51,10 @@ document.onkeydown = function(event){
                 <div>Guesses Left: ${userGuesses}</div>
                 <div>Letters Guessed: ${userLetters.toString()}</div>
             `
+    }
+
+    function resetGame () {
+        userGuesses = 10;
     }
 
 }
